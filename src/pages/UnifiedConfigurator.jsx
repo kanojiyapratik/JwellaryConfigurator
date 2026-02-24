@@ -40,7 +40,7 @@ export default function UnifiedConfigurator() {
   ];
 
   const renderOptions = (options, selected, setSelected) => (
-    <div className="grid grid-cols-1 gap-1">
+    <div className="grid grid-cols-3 gap-2">
       {Array.isArray(options) && options.map(opt => (
         <button 
           key={opt.name} 
@@ -124,7 +124,7 @@ export default function UnifiedConfigurator() {
                 {jewelryTypes.map((type, idx) => (
                   <button
                     key={type.key}
-                    className={`bg-white border transition-all p-[6px] flex flex-col items-center group border-gray-200 hover:border-gray-800 ${selectedType.key === type.key ? 'border-gray-800 ring-2 ring-gray-800' : ''}`}
+                    className={`bg-white border transition-all p-[6px] flex flex-row items-center group border-gray-200 hover:border-gray-800 ${selectedType.key === type.key ? 'border-gray-800 ring-2 ring-gray-800' : ''}`}
                     onClick={() => {
                       setSelectedType(type);
                       setStyle(null);
@@ -136,11 +136,13 @@ export default function UnifiedConfigurator() {
                       setCurrentImage(0);
                     }}
                   >
-                    <div className="w-full aspect-square bg-gray-50 mb-[2px] overflow-hidden flex items-center justify-center" style={{height:'38px', width:'38px'}}>
-                      <img src={type.image} alt={type.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" style={{height:'28px', width:'28px'}} />
+                    <div className="flex-shrink-0 bg-gray-50 rounded flex items-center justify-center mr-3" style={{height:'32px', width:'32px'}}>
+                      <img src={type.image} alt={type.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" style={{height:'22px', width:'22px'}} />
                     </div>
-                    <h3 className="font-medium text-[11px] text-gray-800">{type.name}</h3>
-                    <div className="text-[10px] text-gray-400 mt-[2px]">{type.description}</div>
+                    <div className="flex flex-col items-start justify-center flex-1">
+                      <h3 className="font-medium text-[12px] text-gray-800 mb-[2px]">{type.name}</h3>
+                      <div className="text-[10px] text-gray-400 mt-[2px]">{type.description}</div>
+                    </div>
                   </button>
                 ))}
               </div>
