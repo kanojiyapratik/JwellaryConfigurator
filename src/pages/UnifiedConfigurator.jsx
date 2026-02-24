@@ -32,12 +32,15 @@ export default function UnifiedConfigurator() {
     (carat?.price || 0) +
     (diamond?.price || 0);
 
-  const previewImages = [
-    selectedType.image,
-    style?.image || data.styles[0]?.image || '/images/hero1.jpg',
-    metal?.image || '/images/hero2.jpg',
-    shape?.image || '/images/hero3.jpg'
-  ];
+  // Use images array if available, otherwise fallback to previous logic
+  const previewImages = Array.isArray(data.images) && data.images.length > 0
+    ? data.images
+    : [
+        selectedType.image,
+        style?.image || data.styles[0]?.image || '/images/hero1.jpg',
+        metal?.image || '/images/hero2.jpg',
+        shape?.image || '/images/hero3.jpg'
+      ];
 
   const renderOptions = (options, selected, setSelected) => (
     <div className="grid grid-cols-3 gap-4">

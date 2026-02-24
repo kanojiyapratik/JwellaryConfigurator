@@ -1,5 +1,11 @@
 export const solitaireData = {
   image: '/images/solitaire/solitare-preview.jpg',
+  images: [
+    '/images/solitaire/solitare-preview.jpg',
+    '/images/solitaire/solitare-preview.jpg',
+    '/images/solitaire/solitare-preview.jpg',
+    '/images/solitaire/solitare-preview.jpg'
+  ],
   name: 'Solitaire Ring',
   description: 'Design your perfect diamond ring',
   basePrice: 2500,
