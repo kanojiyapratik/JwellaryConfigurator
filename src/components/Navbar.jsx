@@ -21,7 +21,7 @@ export default function Navbar(){
           </Link>
           <div className={`hidden md:flex items-center gap-[2vw] uppercase tracking-[0.14em] text-[1.5vh] text-charcoal`}>
             <Link to="/products" className="hover:opacity-70">Engagement + Wedding</Link>
-            <Link to="/configurator" className="hover:opacity-70">Design Your Ring</Link>
+            <Link to="/unified-configurator" className="hover:opacity-70">Design Your Ring</Link>
             <div className="relative" onMouseEnter={()=>setMega('jewelry')}>
               <Link to="/products" className="hover:opacity-70">Jewelry</Link>
             </div>
@@ -88,7 +88,7 @@ export default function Navbar(){
         <div className={`md:hidden border-t bg-white`}>
           <div className="container py-3 grid gap-3">
             <Link to="/products" onClick={()=>setOpen(false)}>Engagement + Wedding</Link>
-            <Link to="/configurator" onClick={()=>setOpen(false)}>Design Your Ring</Link>
+            <Link to="/unified-configurator" onClick={()=>setOpen(false)}>Design Your Ring</Link>
             <Link to="/products" onClick={()=>setOpen(false)}>Jewelry</Link>
             <Link to="/admin" onClick={()=>setOpen(false)}>About Us</Link>
             <Link to="/login" onClick={()=>setOpen(false)}>Sign In / Sign Up</Link>

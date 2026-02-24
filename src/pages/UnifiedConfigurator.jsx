@@ -40,7 +40,7 @@ export default function UnifiedConfigurator() {
   ];
 
   const renderOptions = (options, selected, setSelected) => (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-3 gap-4">
       {Array.isArray(options) && options.map(opt => (
         <button 
           key={opt.name} 
@@ -48,15 +48,15 @@ export default function UnifiedConfigurator() {
             setSelected(opt);
             setCurrentImage(1);
           }} 
-          className={`bg-white border transition-all p-[4px] flex flex-row items-center group rounded-md
+          className={`bg-white border transition-all p-[22px] flex flex-row items-center group rounded-md
             ${selected?.name === opt.name ? 'border-gray-800 ring-2 ring-gray-800' : 'border-gray-200 hover:border-gray-800'}`}
         > 
-          <div className="flex-shrink-0 bg-gray-50 rounded flex items-center justify-center mr-3" style={{height:'32px', width:'32px'}}>
-            <img src={opt.image} alt={opt.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" style={{height:'22px', width:'22px'}} />
+          <div className="flex-shrink-0 bg-gray-50 rounded flex items-center justify-center mr-6" style={{height:'100px', width:'100px'}}>
+            <img src={opt.image} alt={opt.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" style={{height:'80px', width:'80px'}} />
           </div>
           <div className="flex flex-col items-start justify-center flex-1">
-            <div className="font-medium text-[12px] text-gray-800 mb-[2px]">{opt.name}</div>
-            {opt.price > 0 && <div className="text-[10px] px-[4px] py-[1px] rounded-full bg-gray-100 text-gray-700">+ {formatINR(opt.price)}</div>}
+            <div className="font-medium text-[22px] text-gray-800 mb-[4px]">{opt.name}</div>
+            {opt.price > 0 && <div className="text-[16px] px-[8px] py-[3px] rounded-full bg-gray-100 text-gray-700">+ {formatINR(opt.price)}</div>}
           </div>
         </button>
       ))}
@@ -120,11 +120,11 @@ export default function UnifiedConfigurator() {
 
             {/* SETTING tab: jewelry type selection */}
             <div style={{ display: activeTab === 'setting' ? 'block' : 'none' }}>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-4">
                 {jewelryTypes.map((type, idx) => (
                   <button
                     key={type.key}
-                    className={`bg-white border transition-all p-[6px] flex flex-row items-center group border-gray-200 hover:border-gray-800 ${selectedType.key === type.key ? 'border-gray-800 ring-2 ring-gray-800' : ''}`}
+                    className={`bg-white border transition-all p-[22px] flex flex-row items-center group border-gray-200 hover:border-gray-800 ${selectedType.key === type.key ? 'border-gray-800 ring-2 ring-gray-800' : ''}`}
                     onClick={() => {
                       setSelectedType(type);
                       setStyle(null);
@@ -136,12 +136,12 @@ export default function UnifiedConfigurator() {
                       setCurrentImage(0);
                     }}
                   >
-                    <div className="flex-shrink-0 bg-gray-50 rounded flex items-center justify-center mr-3" style={{height:'32px', width:'32px'}}>
-                      <img src={type.image} alt={type.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" style={{height:'22px', width:'22px'}} />
+                    <div className="flex-shrink-0 bg-gray-50 rounded flex items-center justify-center mr-6" style={{height:'100px', width:'100px'}}>
+                      <img src={type.image} alt={type.name} className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform" style={{height:'80px', width:'80px'}} />
                     </div>
                     <div className="flex flex-col items-start justify-center flex-1">
-                      <h3 className="font-medium text-[12px] text-gray-800 mb-[2px]">{type.name}</h3>
-                      <div className="text-[10px] text-gray-400 mt-[2px]">{type.description}</div>
+                      <h3 className="font-medium text-[22px] text-gray-800 mb-[4px]">{type.name}</h3>
+                      <div className="text-[16px] text-gray-400 mt-[2px]">{type.description}</div>
                     </div>
                   </button>
                 ))}

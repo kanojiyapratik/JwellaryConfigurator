@@ -1,5 +1,5 @@
 export const solitaireData = {
-  image: '/images/hero3.jpg',
+  image: '/images/solitaire/solitare-preview.jpg',
   name: 'Solitaire Ring',
   description: 'Design your perfect diamond ring',
   basePrice: 2500,
