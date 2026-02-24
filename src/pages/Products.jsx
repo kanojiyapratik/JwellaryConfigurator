@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
-import api from '../api'
 import ProductCard from '../components/ProductCard'
 
 export default function Products(){
-  const [items, setItems] = useState([])
+  // Demo products (static, since no backend)
+  const [items] = useState([
+    { _id: 1, name: 'Classic Solitaire', image: '/images/solitaire/solitare-preview.jpg', price: 2500 },
+    { _id: 2, name: 'Pavé Band', image: '/images/pave/pave-preview.jpg', price: 3200 },
+    { _id: 3, name: 'Halo Ring', image: '/images/halo/halo-preview.jpg', price: 4100 }
+  ])
   const [q, setQ] = useState('')
   const [active, setActive] = useState('All')
-  useEffect(()=>{
-    api.get('/api/products').then(r=>setItems(r.data)).catch(()=>{})
-  },[])
   return (
   <div className="w-full px-[2vw]">
       <h1 className="text-[3vh] font-bold mb-[2vh] heading">Products</h1>
