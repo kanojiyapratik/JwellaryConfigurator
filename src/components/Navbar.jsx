@@ -9,17 +9,17 @@ export default function Navbar(){
   const transparent = false
   const [mega, setMega] = useState(null) // 'jewelry' | null
   return (
-  <nav className={`bg-ivory sticky top-0 z-30 w-full relative`} onMouseLeave={()=>setMega(null)}>
-  <div className="w-full h-[9vh] min-h-[60px] flex items-center justify-between px-[2vw]">
-        <div className="flex items-center gap-6">
+  <nav className={`bg-ivory sticky top-0 z-30 w-full relative border-b border-gray-200`} onMouseLeave={()=>setMega(null)}>
+  <div className="w-full h-[5.5vh] min-h-[50px] flex items-center justify-between px-[2vw] py-2">
+        <div className="flex items-center gap-4">
           <button className="md:hidden" aria-label="Menu" onClick={()=>setOpen(!open)}>
-            {open? <XMarkIcon className="h-6 w-6"/> : <Bars3Icon className="h-6 w-6"/>}
+            {open? <XMarkIcon className="h-5 w-5"/> : <Bars3Icon className="h-5 w-5"/>}
           </button>
-          <Link to="/" className="leading-tight">
-            <div className={`heading text-[2.6vh] tracking-tight text-charcoal`}>JEWELRY SHOP</div>
-            <div className={`text-gray-600 text-[1.3vh] italic`}>since 1976</div>
+          <Link to="/" className="leading-tight flex items-center gap-1">
+            <div className={`heading text-[1.8vh] tracking-tight text-charcoal font-bold`}>JEWELRY SHOP</div>
+            <div className={`text-gray-500 text-[0.9vh] italic hidden md:inline`}>since 1976</div>
           </Link>
-          <div className={`hidden md:flex items-center gap-[2vw] uppercase tracking-[0.14em] text-[1.5vh] text-charcoal`}>
+          <div className={`hidden md:flex items-center gap-[1.8vw] uppercase tracking-[0.12em] text-[1.3vh] text-charcoal`}>
             <Link to="/products" className="hover:opacity-70">Engagement + Wedding</Link>
             <Link to="/unified-configurator" className="hover:opacity-70">Design Your Ring</Link>
             <div className="relative" onMouseEnter={()=>setMega('jewelry')}>
@@ -28,15 +28,15 @@ export default function Navbar(){
             <Link to="/admin" className="hover:opacity-70">About Us</Link>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Link to="/login" className={`hidden md:inline text-[1.6vh] text-gray-700`}>Sign In | Sign Up</Link>
-          <button aria-label="Wishlist" className="hidden md:inline-flex"><HeartIcon className={`h-6 w-6 text-gray-700`}/></button>
-          <button aria-label="Search" className="hidden md:inline-flex"><MagnifyingGlassIcon className={`h-6 w-6 text-gray-700`}/></button>
+        <div className="flex items-center gap-2 md:gap-3">
+          <Link to="/login" className={`hidden md:inline text-[1.4vh] text-gray-700 whitespace-nowrap`}>Sign In</Link>
+          <button aria-label="Wishlist" className="hidden md:inline-flex"><HeartIcon className={`h-5 w-5 text-gray-700`}/></button>
+          <button aria-label="Search" className="hidden md:inline-flex"><MagnifyingGlassIcon className={`h-5 w-5 text-gray-700`}/></button>
           <Link to="/cart" className={`relative inline-flex items-center gap-1 text-charcoal`}>
-            <ShoppingBagIcon className="h-6 w-6"/>
-            <span className="text-sm">({items.length})</span>
+            <ShoppingBagIcon className="h-5 w-5"/>
+            <span className="text-xs">({items.length})</span>
           </Link>
-          <a href="#appointment" className={`hidden md:inline-flex rounded-full btn-dark`}>Book an appointment</a>
+          <a href="#appointment" className={`hidden md:inline-flex px-3 py-1.5 text-xs border border-gold rounded-full text-gold bg-white hover:bg-gold hover:text-white transition`}>Book</a>
         </div>
       </div>
       {/* Mega menu */}
@@ -86,12 +86,12 @@ export default function Navbar(){
       )}
       {open && (
         <div className={`md:hidden border-t bg-white`}>
-          <div className="container py-3 grid gap-3">
+          <div className="container py-2 px-[2vw] grid gap-2 text-sm">
             <Link to="/products" onClick={()=>setOpen(false)}>Engagement + Wedding</Link>
             <Link to="/unified-configurator" onClick={()=>setOpen(false)}>Design Your Ring</Link>
             <Link to="/products" onClick={()=>setOpen(false)}>Jewelry</Link>
             <Link to="/admin" onClick={()=>setOpen(false)}>About Us</Link>
-            <Link to="/login" onClick={()=>setOpen(false)}>Sign In / Sign Up</Link>
+            <Link to="/login" onClick={()=>setOpen(false)}>Sign In</Link>
           </div>
         </div>
       )}
