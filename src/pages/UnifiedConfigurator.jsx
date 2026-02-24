@@ -83,10 +83,10 @@ export default function UnifiedConfigurator() {
       </div>
 
       <div className="flex flex-col md:flex-row h-full md:h-[calc(100vh-120px)] gap-0 md:gap-8 px-2 md:px-8 py-4 md:py-8">
-        <div className="md:w-1/2 w-full bg-gradient-to-br from-blush via-white to-ivory flex items-center justify-center relative rounded-2xl shadow-lg p-4 md:p-8 mb-6 md:mb-0">
+        <div className="md:w-1/2 w-full bg-gradient-to-br from-blush via-white to-ivory flex items-center justify-center relative rounded-2xl shadow-lg p-4 md:p-8 mb-2 md:mb-0" style={{marginTop: '4px', height: '620px'}}>
           <button onClick={() => setCurrentImage(prev => prev > 0 ? prev - 1 : previewImages.length - 1)} className="absolute left-4 top-1/2 -translate-y-1/2 text-3xl text-gold hover:text-charcoal w-12 h-12 flex items-center justify-center bg-white/80 rounded-full shadow transition">←</button>
           <div className="w-[80%] h-[80%] flex items-center justify-center">
-            <img src={previewImages[currentImage]} alt="Ring preview" className="max-w-full max-h-full object-contain drop-shadow-xl rounded-xl" />
+            <img src={previewImages[currentImage]} alt="Ring preview" className="max-w-full max-h-full object-contain drop-shadow-xl rounded-xl" style={{width: '520px', height: '520px'}} />
           </div>
           <button onClick={() => setCurrentImage(prev => prev < previewImages.length - 1 ? prev + 1 : 0)} className="absolute right-4 top-1/2 -translate-y-1/2 text-3xl text-gold hover:text-charcoal w-12 h-12 flex items-center justify-center bg-white/80 rounded-full shadow transition">→</button>
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
@@ -96,8 +96,8 @@ export default function UnifiedConfigurator() {
           </div>
         </div>
 
-        <div className="md:w-1/2 w-full overflow-y-auto bg-white/90 rounded-2xl shadow-lg p-4 md:p-8">
-          <div className="flex gap-4 mb-8 border-b border-gold">
+        <div className="md:w-1/2 w-full overflow-y-auto bg-white/90 rounded-2xl shadow-lg p-4 md:p-8" style={{maxHeight: '620px', marginTop: '4px', overflowY: 'auto'}}>
+          <div className="flex gap-4 mb-4 border-b border-gold" style={{maxHeight: '320px', marginTop: '-16px', overflowY: 'auto'}}>
             {tabStates.map(tab => (
               <button
                 key={tab.key}
