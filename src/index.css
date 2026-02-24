@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* Core sizing */
+html, body, #root { height: 100%; }
+html, body { width: 100%; overflow-x: hidden; box-sizing: border-box; }
+
+/* Luxury palette */
+:root {
+  --charcoal: #1b1b1b;
+  --ivory: #faf9f6;
+  --gold: #c7a34b;
+  /* Header (announcement + navbar) combined height in vh; override at breakpoints below */
+  --header-vh: 14vh;
+  --blush: #fdf5ef;
+}
+
+/* Base colors */
+body { background-color: var(--ivory); color: var(--charcoal); }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6, .heading { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+body, button, input, select, textarea { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
+/* Minimal utility helpers for palette */
+.bg-ivory { background-color: var(--ivory); }
+.bg-charcoal { background-color: var(--charcoal); }
+.bg-gold { background-color: var(--gold); }
+.text-charcoal { color: var(--charcoal); }
+.text-ivory { color: var(--ivory); }
+.text-ivory\/90 { color: rgba(250, 249, 246, 0.9); }
+.text-ivory\/80 { color: rgba(250, 249, 246, 0.8); }
+.text-gold { color: var(--gold); }
+.hover-text-gold:hover { color: var(--gold); }
+.border-charcoal { border-color: var(--charcoal); }
+/* Opacity variants used in UI (escaped slash) */
+.bg-ivory\/80 { background-color: rgba(250, 249, 246, 0.80); }
+.bg-ivory\/90 { background-color: rgba(250, 249, 246, 0.90); }
+.bg-ivory\/95 { background-color: rgba(250, 249, 246, 0.95); }
+
+/* Eyebrow label */
+.eyebrow { text-transform: uppercase; letter-spacing: 0.18em; font-size: 1.4vh; }
+
+/* Dark CTA button for navbar */
+.btn-dark { background-color: var(--charcoal); color: var(--ivory); padding: 1.2vh 2vh; }
+.btn-dark:hover { filter: brightness(1.1); }
+.btn-outline-light { background: transparent; color: var(--ivory); border: 0.3vh solid rgba(250,249,246,0.9); padding: 1.2vh 2vh; }
+.btn-outline-light:hover { background: rgba(250,249,246,0.08); }
+
+/* Text shadow helpers for readability on images */
+.text-shadow { text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
+.text-shadow-sm { text-shadow: 0 1px 4px rgba(0,0,0,0.28); }
+
+/* Mega menu helpers */
+.menu-heading { text-transform: uppercase; letter-spacing: 0.18em; font-size: 1.4vh; color: #555; font-weight: 600; }
+.menu-link { display: block; padding: 0.5vh 0; color: var(--charcoal); font-size: 1.7vh; }
+.menu-link:hover { color: var(--gold); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 0.6vh; line-height: 1; cursor: pointer; transition: filter .2s ease, transform .05s ease; }
+.btn:active { transform: translateY(0.2vh); }
+.btn-primary { background-color: var(--gold); color: var(--charcoal); padding: 1.4vh 2.2vh; }
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-outline { background: transparent; color: var(--charcoal); border: 0.3vh solid var(--charcoal); padding: 1.2vh 2vh; }
+.btn-outline:hover { background: rgba(0,0,0,0.04); }
+.btn-pill { border-radius: 9999px; padding: 1.4vh 2.4vh; }
+.btn-pill-lg { border-radius: 9999px; padding: 2vh 3.2vh; font-size: 2vh; }
+.btn-gold-outline { background: transparent; color: var(--charcoal); border: 0.3vh solid var(--gold); }
+.btn-gold-outline:hover { background: rgba(199,163,75,0.08); }
+
+.bg-blush { background-color: var(--blush); }
+.border-gold { border-color: var(--gold); }
+.ring-gold { box-shadow: 0 0 0 0.35vh var(--gold) inset; }
+
+/* Chips for filters */
+.chip { padding: 0.8vh 1.4vh; border: 0.3vh solid rgba(27,27,27,0.25); border-radius: 9999px; cursor: pointer; user-select: none; }
+.chip:hover { border-color: var(--gold); }
+.chip-active { background: var(--gold); border-color: var(--gold); color: var(--charcoal); }
+
+/* Sticky header helper height under Navbar (8vh) */
+.sticky-under-nav { position: sticky; top: 8vh; z-index: 10; }
+
+/* Hero should fill the viewport minus header */
+.hero-fit { height: calc(100vh - var(--header-vh)); }
+
+@media (min-width: 768px) {
+  :root { --header-vh: 12vh; }
+}
